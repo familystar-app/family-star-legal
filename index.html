@@ -1,0 +1,664 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Family Star – Track what matters, together</title>
+  <meta name="description" content="A simple app to help families track daily habits, chores, and moments that matter. Keep everyone on the same page without the overwhelm.">
+  <style>
+    :root {
+      --color-background: #FAFAFA;
+      --color-surface: #FFFFFF;
+      --color-text: #1A1A1A;
+      --color-text-secondary: #6B7280;
+      --color-primary: #5B7FFF;
+      --color-accent: #10B981;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: var(--color-background);
+      color: var(--color-text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    header {
+      background: var(--color-surface);
+      padding: 20px 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 24px;
+      font-weight: 600;
+      color: var(--color-text);
+      text-decoration: none;
+    }
+
+    .logo svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    nav a {
+      color: var(--color-text-secondary);
+      text-decoration: none;
+      font-size: 15px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--color-primary);
+      background: rgba(91, 127, 255, 0.08);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 0;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      color: var(--color-text);
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: var(--color-text-secondary);
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-visual {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+      height: 400px;
+      border-radius: 24px;
+      margin: 60px auto 0;
+      box-shadow: 0 20px 60px rgba(91, 127, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    /* Features Section */
+    .features {
+      padding: 80px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .section-header h2 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .section-header p {
+      font-size: 18px;
+      color: var(--color-text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 32px;
+    }
+
+    .feature-card {
+      background: var(--color-surface);
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    }
+
+    .feature-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .feature-icon svg {
+      width: 28px;
+      height: 28px;
+      color: white;
+    }
+
+    .feature-card h3 {
+      font-size: 22px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .feature-card p {
+      color: var(--color-text-secondary);
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    /* How It Works Section */
+    .how-it-works {
+      padding: 80px 0;
+      background: var(--color-surface);
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .step {
+      text-align: center;
+    }
+
+    .step-number {
+      width: 48px;
+      height: 48px;
+      background: var(--color-primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 auto 20px;
+    }
+
+    .step h3 {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .step p {
+      color: var(--color-text-secondary);
+      font-size: 15px;
+    }
+
+    /* CTA Section */
+    .cta {
+      padding: 100px 0;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 42px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .cta p {
+      font-size: 18px;
+      color: var(--color-text-secondary);
+      margin-bottom: 40px;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 16px 32px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: white;
+      box-shadow: 0 4px 16px rgba(91, 127, 255, 0.3);
+    }
+
+    .btn-primary:hover {
+      background: #4A6FEE;
+      box-shadow: 0 6px 24px rgba(91, 127, 255, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--color-text);
+      border: 2px solid var(--color-text-secondary);
+    }
+
+    .btn-secondary:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+
+    /* SEO Content Section */
+    .seo-content {
+      padding: 80px 0;
+      background: var(--color-surface);
+    }
+
+    .seo-content h2 {
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 24px;
+    }
+
+    .seo-content p {
+      color: var(--color-text-secondary);
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .seo-placeholder {
+      background: #F3F4F6;
+      border: 2px dashed #D1D5DB;
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      color: var(--color-text-secondary);
+      font-style: italic;
+      margin: 40px 0;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--color-text);
+      color: white;
+      padding: 60px 0 40px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h4 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .footer-section a {
+      display: block;
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+
+    .footer-section a:hover {
+      color: white;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 14px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 36px;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .hero-visual {
+        height: 300px;
+      }
+
+      .section-header h2 {
+        font-size: 28px;
+      }
+
+      .cta h2 {
+        font-size: 32px;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .steps {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero {
+        padding: 40px 0;
+      }
+
+      .hero h1 {
+        font-size: 28px;
+      }
+
+      .features, .how-it-works, .cta, .seo-content {
+        padding: 60px 0;
+      }
+
+      .feature-card {
+        padding: 30px;
+      }
+    }
+  </style>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+ <body>
+  <header>
+   <div class="container">
+    <div class="header-content"><a href="#" class="logo">
+      <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z" /> <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+      </svg> Family Star </a>
+     <nav><a href="#features">Features</a> <a href="#how-it-works">How it works</a> <a href="#download">Download</a>
+     </nav>
+    </div>
+   </div>
+  </header>
+  <main><!-- Hero Section -->
+   <section class="hero">
+    <div class="container">
+     <h1 id="hero-title">Keep your family on track, without the chaos</h1>
+     <p id="hero-subtitle">A simple way to track habits, chores, and the little things that keep your household running smoothly.</p>
+     <div class="hero-visual">
+      [App screenshot placeholder – your app UI will go here]
+     </div>
+    </div>
+   </section><!-- Features Section -->
+   <section class="features" id="features">
+    <div class="container">
+     <div class="section-header">
+      <h2>Built for real families</h2>
+      <p>No complicated setups. Just the tools you need to stay organized together.</p>
+     </div>
+     <div class="features-grid">
+      <div class="feature-card">
+       <div class="feature-icon">
+        <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4" /> <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+        </svg>
+       </div>
+       <h3 id="feature-1-title">Track habits that matter</h3>
+       <p>Create simple routines for kids and adults. Check off daily tasks, build streaks, and celebrate progress together.</p>
+      </div>
+      <div class="feature-card">
+       <div class="feature-icon">
+        <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" />
+        </svg>
+       </div>
+       <h3 id="feature-2-title">Everyone sees the same thing</h3>
+       <p>When someone completes a task, the whole family knows. No more asking "Did you do your chores?"</p>
+      </div>
+      <div class="feature-card">
+       <div class="feature-icon">
+        <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9" /> <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+        </svg>
+       </div>
+       <h3 id="feature-3-title">Flexible for your family</h3>
+       <p>Add what works for you. Track bedtime routines, homework, pet care, screen time limits – whatever helps your home run better.</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- How It Works -->
+   <section class="how-it-works" id="how-it-works">
+    <div class="container">
+     <div class="section-header">
+      <h2>How it works</h2>
+      <p>Get started in minutes, not hours</p>
+     </div>
+     <div class="steps">
+      <div class="step">
+       <div class="step-number">
+        1
+       </div>
+       <h3>Set up your family</h3>
+       <p>Add family members and create a shared space</p>
+      </div>
+      <div class="step">
+       <div class="step-number">
+        2
+       </div>
+       <h3>Add your routines</h3>
+       <p>Create simple tasks and habits you want to track</p>
+      </div>
+      <div class="step">
+       <div class="step-number">
+        3
+       </div>
+       <h3>Check in daily</h3>
+       <p>Mark tasks complete, watch streaks grow, celebrate together</p>
+      </div>
+     </div>
+    </div>
+   </section><!-- CTA Section -->
+   <section class="cta" id="download">
+    <div class="container">
+     <h2 id="cta-title">Ready to try it?</h2>
+     <p>Download Family Star and start tracking what matters to your family.</p>
+     <div class="cta-buttons"><a href="#" class="btn btn-primary" id="cta-button">Get the app</a> <a href="#" class="btn btn-secondary">Learn more</a>
+     </div>
+    </div>
+   </section><!-- SEO/AEO Content Placeholder -->
+   <section class="seo-content">
+    <div class="container">
+     <h2>Why families use habit tracking apps</h2>
+     <div class="seo-placeholder">
+      [SEO Content Placeholder – Add long-form content here for search engines]<br><br>
+       This section is for detailed content about family organization, habit tracking benefits, parenting tips, etc.<br>
+       Target: 800-1200 words of helpful, informative content that answers common questions.
+     </div>
+     <h2>Frequently asked questions</h2>
+     <div class="seo-placeholder">
+      [FAQ Schema Placeholder – Add structured Q&amp;A content here]<br><br>
+       Format as schema.org FAQ for rich snippets in search results.
+     </div>
+    </div>
+   </section>
+  </main>
+  <footer>
+   <div class="container">
+    <div class="footer-content">
+     <div class="footer-section">
+      <h4>Product</h4><a href="#">Features</a> <a href="#">How it works</a> <a href="#">Pricing</a> <a href="#">Download</a>
+     </div>
+     <div class="footer-section">
+      <h4>Support</h4><a href="#">Help center</a> <a href="#">Privacy policy</a> <a href="#">Terms of service</a>
+     </div>
+    </div>
+    <div class="footer-bottom">
+     <p>© 2024 Family Star. Made with care for families.</p>
+    </div>
+   </div>
+  </footer>
+  <script>
+    const defaultConfig = {
+      hero_title: "Keep your family on track, without the chaos",
+      hero_subtitle: "A simple way to track habits, chores, and the little things that keep your household running smoothly.",
+      feature_1_title: "Track habits that matter",
+      feature_2_title: "Everyone sees the same thing",
+      feature_3_title: "Flexible for your family",
+      cta_title: "Ready to try it?",
+      cta_button_text: "Get the app",
+      background_color: "#FAFAFA",
+      surface_color: "#FFFFFF",
+      text_color: "#1A1A1A",
+      primary_color: "#5B7FFF",
+      accent_color: "#10B981"
+    };
+
+    async function onConfigChange(config) {
+      const heroTitle = document.getElementById('hero-title');
+      const heroSubtitle = document.getElementById('hero-subtitle');
+      const feature1Title = document.getElementById('feature-1-title');
+      const feature2Title = document.getElementById('feature-2-title');
+      const feature3Title = document.getElementById('feature-3-title');
+      const ctaTitle = document.getElementById('cta-title');
+      const ctaButton = document.getElementById('cta-button');
+
+      if (heroTitle) heroTitle.textContent = config.hero_title || defaultConfig.hero_title;
+      if (heroSubtitle) heroSubtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+      if (feature1Title) feature1Title.textContent = config.feature_1_title || defaultConfig.feature_1_title;
+      if (feature2Title) feature2Title.textContent = config.feature_2_title || defaultConfig.feature_2_title;
+      if (feature3Title) feature3Title.textContent = config.feature_3_title || defaultConfig.feature_3_title;
+      if (ctaTitle) ctaTitle.textContent = config.cta_title || defaultConfig.cta_title;
+      if (ctaButton) ctaButton.textContent = config.cta_button_text || defaultConfig.cta_button_text;
+
+      // Apply colors
+      const backgroundColor = config.background_color || defaultConfig.background_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const primaryColor = config.primary_color || defaultConfig.primary_color;
+      const accentColor = config.accent_color || defaultConfig.accent_color;
+
+      document.documentElement.style.setProperty('--color-background', backgroundColor);
+      document.documentElement.style.setProperty('--color-surface', surfaceColor);
+      document.documentElement.style.setProperty('--color-text', textColor);
+      document.documentElement.style.setProperty('--color-primary', primaryColor);
+      document.documentElement.style.setProperty('--color-accent', accentColor);
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_color || defaultConfig.primary_color,
+            set: (value) => {
+              config.primary_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ primary_color: value });
+            }
+          },
+          {
+            get: () => config.accent_color || defaultConfig.accent_color,
+            set: (value) => {
+              config.accent_color = value;
+              if (window.elementSdk) window.elementSdk.setConfig({ accent_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: undefined,
+        fontSizeable: undefined
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["hero_title", config.hero_title || defaultConfig.hero_title],
+        ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+        ["feature_1_title", config.feature_1_title || defaultConfig.feature_1_title],
+        ["feature_2_title", config.feature_2_title || defaultConfig.feature_2_title],
+        ["feature_3_title", config.feature_3_title || defaultConfig.feature_3_title],
+        ["cta_title", config.cta_title || defaultConfig.cta_title],
+        ["cta_button_text", config.cta_button_text || defaultConfig.cta_button_text]
+      ]);
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c4ec97f8490a24f',t:'MTc2OTU4NTQ1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
