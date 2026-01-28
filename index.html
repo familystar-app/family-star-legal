@@ -1,25 +1,133 @@
 <!doctype html>
 <html lang="en">
- <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Family Star – Track what matters, together</title>
-  <meta name="description" content="A simple app to help families track daily habits, chores, and moments that matter. Keep everyone on the same page without the overwhelm.">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary SEO -->
+  <title>Family Star: Kids Rewards, Chore Chart & Habit Tracker App</title>
+  <meta name="description" content="Family Star is a simple kids rewards app for chores and routines — plus points you can award for good behaviour. Create a chore chart, track habits, earn points, and redeem rewards — a modern star chart for real families." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <link rel="canonical" href="https://familystar.space/" />
+  <meta name="theme-color" content="#F7F2EE" />
+
+  <!-- Favicons (replace paths with your real icons) -->
+  <link rel="icon" href="/images/favicon.ico" />
+  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+  <!-- Social (Open Graph / Twitter) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Family Star" />
+  <meta property="og:title" content="Family Star: Kids Rewards, Chore Chart & Habit Tracker" />
+  <meta property="og:description" content="Create chores and routines, then award points for good behaviour. Kids earn points and redeem rewards — a modern star chart for real families." />
+  <meta property="og:url" content="https://familystar.space/" />
+  <meta property="og:image" content="https://familystar.space/images/og-family-star.png" />
+  <meta property="og:image:alt" content="Family Star app preview showing tasks, points, and rewards" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Family Star: Kids Rewards, Chore Chart & Habit Tracker" />
+  <meta name="twitter:description" content="Create chores and routines, award points for good behaviour, and redeem rewards. A modern star chart for families." />
+  <meta name="twitter:image" content="https://familystar.space/images/og-family-star.png" />
+
+  <!-- ASO / iOS Smart App Banner (works in Safari iOS) -->
+  <meta name="apple-itunes-app" content="app-id=6757995088, app-argument=https://apps.apple.com/sg/app/family-star-kids-rewards/id6757995088" />
+
+  <!-- Preload key visuals for speed -->
+  <link rel="preload" as="image" href="images/hero_banner.png" />
+
+  <!-- Structured data: WebSite + Mobile App + FAQ -->
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "Family Star",
+      "url": "https://familystar.space/",
+      "logo": "https://familystar.space/images/family_star.png"
+    },
+    {
+      "@type": "WebSite",
+      "name": "Family Star",
+      "url": "https://familystar.space/"
+    },
+    {
+      "@type": "MobileApplication",
+      "name": "Family Star",
+      "operatingSystem": "iOS",
+      "applicationCategory": "ParentingApplication",
+      "description": "A kids rewards app for chores and daily routines — plus points you can award for good behaviour. Includes a chore chart, habit tracking, points, rewards, and redemption.",
+      "downloadUrl": "https://apps.apple.com/sg/app/family-star-kids-rewards/id6757995088",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "SGD"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Family Star a chore chart or a habit tracker?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Both. You can create chores and routines (like homework, screen time limits, bedtime, brushing teeth) and track completion daily."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do points and rewards work?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Parents assign points to tasks. Kids earn points by completing tasks, then redeem rewards you define (for example extra play time, a small treat, or a family activity)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I award points for good behaviour, not just tasks?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. You can award points anytime for good behaviour (like helping out, good attitude, or trying hard), on top of points earned from daily tasks."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is my family data private?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Family Star is designed to keep things simple. For the current version, it works as a straightforward home routine tool without complicated setup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is Family Star for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Parents who want an easy kids rewards system at home — especially for ages where daily routines and consistency matter most."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+
   <style>
     :root {
-      --color-background: #FAFAFA;
+      --color-background: #F7F2EE;
       --color-surface: #FFFFFF;
-      --color-text: #1A1A1A;
-      --color-text-secondary: #6B7280;
-      --color-primary: #5B7FFF;
-      --color-accent: #10B981;
+      --color-text: #2D2B2A;
+      --color-text-secondary: #6D6B6A;
+      --color-primary: #FF9B6A;
+      --color-accent: #57C7A6;
+      --color-outline: #E7E0DA;
+      --color-primary-dark: #F68A52;
+      --color-primary-soft: #FFE2D3;
+      --color-shadow: rgba(0,0,0,0.10);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -29,18 +137,10 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    html, body {
-      height: 100%;
-      width: 100%;
-    }
+    html, body { height: 100%; width: 100%; }
 
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
 
-    /* Header */
     header {
       background: var(--color-surface);
       padding: 20px 0;
@@ -50,11 +150,7 @@
       z-index: 100;
     }
 
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+    .header-content { display: flex; justify-content: space-between; align-items: center; }
 
     .logo {
       display: flex;
@@ -66,10 +162,7 @@
       text-decoration: none;
     }
 
-    .logo svg {
-      width: 32px;
-      height: 32px;
-    }
+    .logo img { width: 32px; height: 32px; border-radius: 6px; }
 
     nav a {
       color: var(--color-text-secondary);
@@ -80,16 +173,9 @@
       transition: all 0.2s;
     }
 
-    nav a:hover {
-      color: var(--color-primary);
-      background: rgba(91, 127, 255, 0.08);
-    }
+    nav a:hover { color: var(--color-primary-dark); background: var(--color-primary-soft); }
 
-    /* Hero Section */
-    .hero {
-      padding: 80px 0;
-      text-align: center;
-    }
+    .hero { padding: 80px 0; text-align: center; }
 
     .hero h1 {
       font-size: 48px;
@@ -102,44 +188,66 @@
     .hero p {
       font-size: 20px;
       color: var(--color-text-secondary);
-      max-width: 600px;
+      max-width: 720px;
       margin: 0 auto 40px;
     }
 
+
+    .hero-actions{
+      display:flex;
+      gap:14px;
+      justify-content:center;
+      align-items:center;
+      flex-wrap:wrap;
+      margin: 0 auto 10px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 12px 18px;
+      border-radius: 14px;
+      text-decoration:none;
+      font-weight: 650;
+      font-size: 15px;
+      transition: transform 0.2s, opacity 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+      border: 1px solid transparent;
+    }
+    .btn:hover{ transform: translateY(-1px); opacity: 0.95; }
+    .btn-primary{
+      background: var(--color-primary);
+      color: #fff;
+      border-color: var(--color-primary);
+    }
+    .btn-primary:hover{ background: var(--color-primary-dark); border-color: var(--color-primary-dark); }
+    .btn-secondary{
+      background: #fff;
+      color: var(--color-text);
+      border-color: var(--color-outline);
+    }
+    .btn-secondary:hover{ border-color: var(--color-primary); }
+
     .hero-visual {
-      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
-      height: 400px;
+      max-width: 100%;
+      height: auto;
       border-radius: 24px;
       margin: 60px auto 0;
-      box-shadow: 0 20px 60px rgba(91, 127, 255, 0.25);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 18px;
-      font-weight: 500;
+      box-shadow: 0 20px 60px var(--color-shadow);
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
     }
 
-    /* Features Section */
-    .features {
-      padding: 80px 0;
-    }
+    .features { padding: 80px 0; }
 
-    .section-header {
-      text-align: center;
-      margin-bottom: 60px;
-    }
+    .section-header { text-align: center; margin-bottom: 60px; }
 
-    .section-header h2 {
-      font-size: 36px;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
+    .section-header h2 { font-size: 36px; font-weight: 700; margin-bottom: 16px; }
 
     .section-header p {
       font-size: 18px;
       color: var(--color-text-secondary);
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
     }
 
@@ -157,15 +265,12 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
-    .feature-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-    }
+    .feature-card:hover { transform: translateY(-4px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
 
     .feature-icon {
       width: 56px;
       height: 56px;
-      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent) 100%);
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
       border-radius: 16px;
       display: flex;
       align-items: center;
@@ -173,29 +278,13 @@
       margin-bottom: 24px;
     }
 
-    .feature-icon svg {
-      width: 28px;
-      height: 28px;
-      color: white;
-    }
+    .feature-icon svg { width: 28px; height: 28px; color: white; }
 
-    .feature-card h3 {
-      font-size: 22px;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
+    .feature-card h3 { font-size: 22px; font-weight: 600; margin-bottom: 12px; }
 
-    .feature-card p {
-      color: var(--color-text-secondary);
-      font-size: 16px;
-      line-height: 1.6;
-    }
+    .feature-card p { color: var(--color-text-secondary); font-size: 16px; line-height: 1.6; }
 
-    /* How It Works Section */
-    .how-it-works {
-      padding: 80px 0;
-      background: var(--color-surface);
-    }
+    .how-it-works { padding: 80px 0; background: var(--color-surface); }
 
     .steps {
       display: grid;
@@ -204,9 +293,7 @@
       margin-top: 60px;
     }
 
-    .step {
-      text-align: center;
-    }
+    .step { text-align: center; }
 
     .step-number {
       width: 48px;
@@ -222,113 +309,56 @@
       margin: 0 auto 20px;
     }
 
-    .step h3 {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 12px;
-    }
+    .step h3 { font-size: 20px; font-weight: 600; margin-bottom: 12px; }
 
-    .step p {
-      color: var(--color-text-secondary);
-      font-size: 15px;
-    }
+    .step p { color: var(--color-text-secondary); font-size: 15px; }
 
-    /* CTA Section */
-    .cta {
-      padding: 100px 0;
-      text-align: center;
-    }
+    .cta { padding: 100px 0; text-align: center; }
 
-    .cta h2 {
-      font-size: 42px;
-      font-weight: 700;
-      margin-bottom: 24px;
-    }
+    .cta h2 { font-size: 42px; font-weight: 700; margin-bottom: 24px; }
 
-    .cta p {
-      font-size: 18px;
-      color: var(--color-text-secondary);
-      margin-bottom: 40px;
-    }
+    .cta p { font-size: 18px; color: var(--color-text-secondary); margin-bottom: 40px; }
 
-    .cta-buttons {
-      display: flex;
-      gap: 16px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 
-    .btn {
-      padding: 16px 32px;
-      border-radius: 12px;
-      font-size: 16px;
-      font-weight: 600;
-      text-decoration: none;
-      display: inline-block;
-      transition: all 0.2s;
-      border: none;
-      cursor: pointer;
-    }
+    .app-store-link { display: inline-block; transition: transform 0.2s, opacity 0.2s; }
 
-    .btn-primary {
-      background: var(--color-primary);
-      color: white;
-      box-shadow: 0 4px 16px rgba(91, 127, 255, 0.3);
-    }
+    .app-store-link:hover { transform: translateY(-2px); opacity: 0.9; }
 
-    .btn-primary:hover {
-      background: #4A6FEE;
-      box-shadow: 0 6px 24px rgba(91, 127, 255, 0.4);
-      transform: translateY(-2px);
-    }
+    .app-store-badge { height: 50px; width: auto; }
 
-    .btn-secondary {
-      background: transparent;
-      color: var(--color-text);
-      border: 2px solid var(--color-text-secondary);
-    }
+    .seo-content { padding: 80px 0; background: var(--color-surface); }
 
-    .btn-secondary:hover {
-      border-color: var(--color-primary);
-      color: var(--color-primary);
-    }
+    .seo-content h2 { font-size: 32px; font-weight: 700; margin-bottom: 20px; }
+    .seo-content h3 { font-size: 22px; font-weight: 700; margin: 28px 0 10px; }
 
-    /* SEO Content Section */
-    .seo-content {
-      padding: 80px 0;
-      background: var(--color-surface);
-    }
-
-    .seo-content h2 {
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 24px;
-    }
-
-    .seo-content p {
+    .seo-content p, .seo-content li {
       color: var(--color-text-secondary);
       font-size: 16px;
-      line-height: 1.8;
-      margin-bottom: 20px;
+      line-height: 1.9;
     }
 
-    .seo-placeholder {
-      background: #F3F4F6;
-      border: 2px dashed #D1D5DB;
-      border-radius: 12px;
-      padding: 40px;
-      text-align: center;
-      color: var(--color-text-secondary);
-      font-style: italic;
-      margin: 40px 0;
+    .seo-content ul { padding-left: 22px; margin: 10px 0 18px; }
+
+    .faq {
+      margin-top: 30px;
+      border-top: 1px solid var(--color-outline);
+      padding-top: 24px;
     }
 
-    /* Footer */
-    footer {
-      background: var(--color-text);
-      color: white;
-      padding: 60px 0 40px;
+    details {
+      background: #fff;
+      border: 1px solid var(--color-outline);
+      border-radius: 14px;
+      padding: 16px 18px;
+      margin: 12px 0;
     }
+
+    summary { cursor: pointer; font-weight: 650; color: var(--color-text); }
+
+    details p { margin-top: 10px; }
+
+    footer { background: var(--color-text); color: white; padding: 60px 0 40px; }
 
     .footer-content {
       display: grid;
@@ -337,11 +367,7 @@
       margin-bottom: 40px;
     }
 
-    .footer-section h4 {
-      font-size: 16px;
-      font-weight: 600;
-      margin-bottom: 16px;
-    }
+    .footer-section h4 { font-size: 16px; font-weight: 600; margin-bottom: 16px; }
 
     .footer-section a {
       display: block;
@@ -352,9 +378,7 @@
       transition: color 0.2s;
     }
 
-    .footer-section a:hover {
-      color: white;
-    }
+    .footer-section a:hover { color: white; }
 
     .footer-bottom {
       text-align: center;
@@ -364,301 +388,238 @@
       font-size: 14px;
     }
 
-    /* Responsive */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 36px;
-      }
-
-      .hero p {
-        font-size: 18px;
-      }
-
-      .hero-visual {
-        height: 300px;
-      }
-
-      .section-header h2 {
-        font-size: 28px;
-      }
-
-      .cta h2 {
-        font-size: 32px;
-      }
-
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .steps {
-        grid-template-columns: 1fr;
-      }
-
-      nav {
-        display: none;
-      }
+      .hero h1 { font-size: 36px; }
+      .hero p { font-size: 18px; }
+      .section-header h2 { font-size: 28px; }
+      .cta h2 { font-size: 32px; }
+      .features-grid { grid-template-columns: 1fr; }
+      .steps { grid-template-columns: 1fr; }
+      nav { display: none; }
     }
 
     @media (max-width: 480px) {
-      .hero {
-        padding: 40px 0;
-      }
-
-      .hero h1 {
-        font-size: 28px;
-      }
-
-      .features, .how-it-works, .cta, .seo-content {
-        padding: 60px 0;
-      }
-
-      .feature-card {
-        padding: 30px;
-      }
+      .hero { padding: 40px 0; }
+      .hero h1 { font-size: 28px; }
+      .features, .how-it-works, .cta, .seo-content { padding: 60px 0; }
+      .feature-card { padding: 30px; }
     }
   </style>
-  <script src="/_sdk/element_sdk.js"></script>
-  <style>@view-transition { navigation: auto; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
-  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
- </head>
- <body>
+</head>
+<body>
   <header>
-   <div class="container">
-    <div class="header-content"><a href="#" class="logo">
-      <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z" /> <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
-      </svg> Family Star </a>
-     <nav><a href="#features">Features</a> <a href="#how-it-works">How it works</a> <a href="#download">Download</a>
-     </nav>
+    <div class="container">
+      <div class="header-content">
+        <a href="#top" class="logo" aria-label="Family Star home">
+          <img src="images/family_star.png" alt="Family Star" width="32" height="32" />
+          Family Star
+        </a>
+        <nav aria-label="Primary">
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#download">Download</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
     </div>
-   </div>
   </header>
-  <main><!-- Hero Section -->
-   <section class="hero">
-    <div class="container">
-     <h1 id="hero-title">Keep your family on track, without the chaos</h1>
-     <p id="hero-subtitle">A simple way to track habits, chores, and the little things that keep your household running smoothly.</p>
-     <div class="hero-visual">
-      [App screenshot placeholder – your app UI will go here]
-     </div>
-    </div>
-   </section><!-- Features Section -->
-   <section class="features" id="features">
-    <div class="container">
-     <div class="section-header">
-      <h2>Built for real families</h2>
-      <p>No complicated setups. Just the tools you need to stay organized together.</p>
-     </div>
-     <div class="features-grid">
-      <div class="feature-card">
-       <div class="feature-icon">
-        <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4" /> <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
-        </svg>
-       </div>
-       <h3 id="feature-1-title">Track habits that matter</h3>
-       <p>Create simple routines for kids and adults. Check off daily tasks, build streaks, and celebrate progress together.</p>
+
+  <main id="top">
+    <!-- Hero -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container">
+        <h1 id="hero-title">A kids rewards system that actually sticks</h1>
+        <p id="hero-subtitle">Track routines, and reward the moments that matter: helping out, good attitude, trying hard.</p>        <div class="hero-actions" role="group" aria-label="Primary actions">
+          <a class="btn btn-primary" href="#download">Get the app</a>
+          <a class="btn btn-secondary" href="#features">Explore features</a>
+        </div>
+        <img
+          src="images/hero_banner.png"
+          class="hero-visual"
+          alt="Family Star app showing daily tasks, points earned, and rewards"
+          width="1600"
+          height="900"
+          decoding="async"
+          fetchpriority="high"
+        />
       </div>
-      <div class="feature-card">
-       <div class="feature-icon">
-        <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10" /> <path d="M12 6v6l4 2" />
-        </svg>
-       </div>
-       <h3 id="feature-2-title">Everyone sees the same thing</h3>
-       <p>When someone completes a task, the whole family knows. No more asking "Did you do your chores?"</p>
+    </section>
+
+    <!-- Features -->
+    <section class="features" id="features" aria-labelledby="features-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="features-title">Built for real families</h2>
+          <p>No complicated setup. Just routines, points, and rewards — the modern star chart for home.</p>
+        </div>
+
+        <div class="features-grid">
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 11l3 3L22 4" />
+                <path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11" />
+              </svg>
+            </div>
+            <h3>Chores and habits in one place</h3>
+            <p>Set up routines like homework, reading, brushing teeth, packing school bags, or helping with dishes. Check off tasks daily and keep it consistent.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 6v6l4 2" />
+              </svg>
+            </div>
+            <h3>Points that motivate</h3>
+            <p>Assign points to tasks, and award extra points anytime for good behaviour. Kids can see progress clearly, and a points history keeps it fair and clear.</p>
+          </div>
+
+          <div class="feature-card">
+            <div class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 20h9" />
+                <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
+              </svg>
+            </div>
+            <h3>Flexible rewards</h3>
+            <p>Create rewards that match your family values — screen time, bedtime stories, small treats, or experiences. Let kids redeem rewards and feel ownership.</p>
+          </div>
+        </div>
       </div>
-      <div class="feature-card">
-       <div class="feature-icon">
-        <svg viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9" /> <path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z" />
-        </svg>
-       </div>
-       <h3 id="feature-3-title">Flexible for your family</h3>
-       <p>Add what works for you. Track bedtime routines, homework, pet care, screen time limits – whatever helps your home run better.</p>
+    </section>
+
+    <!-- How it works -->
+    <section class="how-it-works" id="how-it-works" aria-labelledby="how-title">
+      <div class="container">
+        <div class="section-header">
+          <h2 id="how-title">How it works</h2>
+          <p>Start in minutes and keep it going daily.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <div class="step-number">1</div>
+            <h3>Set up</h3>
+            <p>Add your child and pick the routines you want to build.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">2</div>
+            <h3>Track</h3>
+            <p>Kids complete tasks. You award points. Progress becomes visible.</p>
+          </div>
+          <div class="step">
+            <div class="step-number">3</div>
+            <h3>Reward</h3>
+            <p>When enough points are earned, let kids redeem a reward.</p>
+          </div>
+        </div>
       </div>
-     </div>
-    </div>
-   </section><!-- How It Works -->
-   <section class="how-it-works" id="how-it-works">
-    <div class="container">
-     <div class="section-header">
-      <h2>How it works</h2>
-      <p>Get started in minutes, not hours</p>
-     </div>
-     <div class="steps">
-      <div class="step">
-       <div class="step-number">
-        1
-       </div>
-       <h3>Set up your family</h3>
-       <p>Add family members and create a shared space</p>
+    </section>
+
+    <!-- Download -->
+    <section class="cta" id="download" aria-labelledby="download-title">
+      <div class="container">
+        <h2 id="download-title">Download Family Star</h2>
+        <p>A simple kids rewards app for chores, routines, and rewarding good behaviour.</p>
+        <div class="cta-buttons">
+          <a
+            href="https://apps.apple.com/sg/app/family-star-kids-rewards/id6757995088?itsct=apps_box_badge&itscg=30200"
+            class="app-store-link"
+            aria-label="Download Family Star on the App Store"
+          >
+            <img
+              src="images/apple_download.svg"
+              alt="Download on the App Store"
+              class="app-store-badge"
+              width="170"
+              height="50"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+        </div>
       </div>
-      <div class="step">
-       <div class="step-number">
-        2
-       </div>
-       <h3>Add your routines</h3>
-       <p>Create simple tasks and habits you want to track</p>
+    </section>
+
+    <!-- SEO content -->
+    <section class="seo-content" id="learn" aria-labelledby="seo-title">
+      <div class="container">
+        <h2 id="seo-title">Why a kids rewards system works</h2>
+
+        <p>Most parents don’t need more parenting theory. You need something that works on busy weekdays, when everyone is tired and you still have to get through homework, dinner, and bedtime. That’s where a simple <strong>chore chart</strong> and <strong>habit tracker</strong> helps — especially when it is paired with <strong>points</strong> and <strong>rewards</strong>, and you can also award points for <strong>good behaviour</strong> in the moment.</p>
+
+        <p>Family Star is basically the digital version of a classic <strong>star chart</strong>, with two upgrades: it’s faster to use, and it makes progress obvious. It also lets you reward the “small wins” that don’t fit neatly into a task list — like kindness, effort, and a good attitude. Kids respond well when expectations are clear, and when the payoff is consistent. When you turn routines into a game (earn points, save up, redeem rewards), you remove a lot of daily friction. You’re no longer negotiating every single task. You’re just following a simple system.</p>
+
+        <h3>What to track (good starters)</h3>
+        <ul>
+          <li>Morning routine: make bed, brush teeth, pack bag</li>
+          <li>School routine: homework, reading, spelling practice</li>
+          <li>Home routine: tidy toys, help with dishes, feed a pet</li>
+          <li>Boundaries: screen time limits, bedtime routine, device charging</li>
+        </ul>
+
+        <p>The best routines are the ones you can repeat every day without needing extra willpower. Keep tasks small. If you want to build a bigger habit (like “study for 45 minutes”), split it into smaller tasks (10–15 minutes) and reward consistency. That’s how habits stick.</p>
+
+        <h3>Picking rewards that don’t backfire</h3>
+        <p>Rewards don’t have to be expensive. In fact, “money rewards” can sometimes create more bargaining. The strongest rewards are usually experiences or privileges that fit your family: choosing a movie, extra story time, picking dinner, small treats, or planning a family activity. Make rewards visible so kids know what they are working toward.</p>
+
+        <p>If your child loses motivation quickly, the reward is probably too far away. Use a mix of short-term rewards (quick wins) and long-term rewards (bigger goals). Over time, you can reduce the reward frequency once the routine becomes automatic.</p>
+
+        <h3>Why this helps parents too</h3>
+        <p>A good rewards system isn’t only about kids. It helps parents stay consistent. When rules are fuzzy, parents end up repeating themselves, and kids start testing boundaries. When the system is clear, everyone knows what “counts” and what doesn’t. You spend less time reminding, and more time enjoying the moments that matter.</p>
+
+        <div class="faq" id="faq" aria-labelledby="faq-title">
+          <h2 id="faq-title">Frequently asked questions</h2>
+
+          <details>
+            <summary>What’s the difference between a chore chart and a habit tracker?</summary>
+            <p>A chore chart usually tracks household responsibilities (like tidying toys or feeding a pet). A habit tracker focuses on repeating behaviours (like reading daily). Family Star supports both, so you can track routines in one place.</p>
+          </details>
+
+          <details>
+            <summary>What age is this best for?</summary>
+            <p>Most families find points and rewards work best when kids are building daily routines and still need structure. Start simple, then adjust tasks and rewards as your child grows.</p>
+          </details>
+
+          <details>
+            <summary>How many points should I give for each task?</summary>
+            <p>Keep it predictable. Easy tasks can be 1–2 points. Bigger tasks can be 5–10 points. What matters is consistency, not “perfect math”. If kids lose interest, shorten the distance to a reward.</p>
+          </details>
+
+
+          <details>
+            <summary>Can I award points for good behaviour, not just tasks?</summary>
+            <p>Yes. On top of points earned from daily tasks, you can also award extra points anytime for good behaviour — for example helping out, showing a good attitude, or trying hard.</p>
+          </details>
+          <details>
+            <summary>Do I need to use rewards forever?</summary>
+            <p>No. Points and rewards are training wheels. Once a routine is stable, you can reduce rewards and keep the routine itself. Many families keep rewards for a few key behaviours and drop the rest.</p>
+          </details>
+        </div>
       </div>
-      <div class="step">
-       <div class="step-number">
-        3
-       </div>
-       <h3>Check in daily</h3>
-       <p>Mark tasks complete, watch streaks grow, celebrate together</p>
-      </div>
-     </div>
-    </div>
-   </section><!-- CTA Section -->
-   <section class="cta" id="download">
-    <div class="container">
-     <h2 id="cta-title">Ready to try it?</h2>
-     <p>Download Family Star and start tracking what matters to your family.</p>
-     <div class="cta-buttons"><a href="#" class="btn btn-primary" id="cta-button">Get the app</a> <a href="#" class="btn btn-secondary">Learn more</a>
-     </div>
-    </div>
-   </section><!-- SEO/AEO Content Placeholder -->
-   <section class="seo-content">
-    <div class="container">
-     <h2>Why families use habit tracking apps</h2>
-     <div class="seo-placeholder">
-      [SEO Content Placeholder – Add long-form content here for search engines]<br><br>
-       This section is for detailed content about family organization, habit tracking benefits, parenting tips, etc.<br>
-       Target: 800-1200 words of helpful, informative content that answers common questions.
-     </div>
-     <h2>Frequently asked questions</h2>
-     <div class="seo-placeholder">
-      [FAQ Schema Placeholder – Add structured Q&amp;A content here]<br><br>
-       Format as schema.org FAQ for rich snippets in search results.
-     </div>
-    </div>
-   </section>
+    </section>
   </main>
+
   <footer>
-   <div class="container">
-    <div class="footer-content">
-     <div class="footer-section">
-      <h4>Product</h4><a href="#">Features</a> <a href="#">How it works</a> <a href="#">Pricing</a> <a href="#">Download</a>
-     </div>
-     <div class="footer-section">
-      <h4>Support</h4><a href="#">Help center</a> <a href="#">Privacy policy</a> <a href="#">Terms of service</a>
-     </div>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Product</h4>
+          <a href="#features">Features</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#download">Download</a>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <a href="/privacy.html">Privacy policy</a>
+          <a href="/terms.html">Terms of service</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Family Star.</p>
+      </div>
     </div>
-    <div class="footer-bottom">
-     <p>© 2024 Family Star. Made with care for families.</p>
-    </div>
-   </div>
   </footer>
-  <script>
-    const defaultConfig = {
-      hero_title: "Keep your family on track, without the chaos",
-      hero_subtitle: "A simple way to track habits, chores, and the little things that keep your household running smoothly.",
-      feature_1_title: "Track habits that matter",
-      feature_2_title: "Everyone sees the same thing",
-      feature_3_title: "Flexible for your family",
-      cta_title: "Ready to try it?",
-      cta_button_text: "Get the app",
-      background_color: "#FAFAFA",
-      surface_color: "#FFFFFF",
-      text_color: "#1A1A1A",
-      primary_color: "#5B7FFF",
-      accent_color: "#10B981"
-    };
-
-    async function onConfigChange(config) {
-      const heroTitle = document.getElementById('hero-title');
-      const heroSubtitle = document.getElementById('hero-subtitle');
-      const feature1Title = document.getElementById('feature-1-title');
-      const feature2Title = document.getElementById('feature-2-title');
-      const feature3Title = document.getElementById('feature-3-title');
-      const ctaTitle = document.getElementById('cta-title');
-      const ctaButton = document.getElementById('cta-button');
-
-      if (heroTitle) heroTitle.textContent = config.hero_title || defaultConfig.hero_title;
-      if (heroSubtitle) heroSubtitle.textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
-      if (feature1Title) feature1Title.textContent = config.feature_1_title || defaultConfig.feature_1_title;
-      if (feature2Title) feature2Title.textContent = config.feature_2_title || defaultConfig.feature_2_title;
-      if (feature3Title) feature3Title.textContent = config.feature_3_title || defaultConfig.feature_3_title;
-      if (ctaTitle) ctaTitle.textContent = config.cta_title || defaultConfig.cta_title;
-      if (ctaButton) ctaButton.textContent = config.cta_button_text || defaultConfig.cta_button_text;
-
-      // Apply colors
-      const backgroundColor = config.background_color || defaultConfig.background_color;
-      const surfaceColor = config.surface_color || defaultConfig.surface_color;
-      const textColor = config.text_color || defaultConfig.text_color;
-      const primaryColor = config.primary_color || defaultConfig.primary_color;
-      const accentColor = config.accent_color || defaultConfig.accent_color;
-
-      document.documentElement.style.setProperty('--color-background', backgroundColor);
-      document.documentElement.style.setProperty('--color-surface', surfaceColor);
-      document.documentElement.style.setProperty('--color-text', textColor);
-      document.documentElement.style.setProperty('--color-primary', primaryColor);
-      document.documentElement.style.setProperty('--color-accent', accentColor);
-    }
-
-    function mapToCapabilities(config) {
-      return {
-        recolorables: [
-          {
-            get: () => config.background_color || defaultConfig.background_color,
-            set: (value) => {
-              config.background_color = value;
-              if (window.elementSdk) window.elementSdk.setConfig({ background_color: value });
-            }
-          },
-          {
-            get: () => config.surface_color || defaultConfig.surface_color,
-            set: (value) => {
-              config.surface_color = value;
-              if (window.elementSdk) window.elementSdk.setConfig({ surface_color: value });
-            }
-          },
-          {
-            get: () => config.text_color || defaultConfig.text_color,
-            set: (value) => {
-              config.text_color = value;
-              if (window.elementSdk) window.elementSdk.setConfig({ text_color: value });
-            }
-          },
-          {
-            get: () => config.primary_color || defaultConfig.primary_color,
-            set: (value) => {
-              config.primary_color = value;
-              if (window.elementSdk) window.elementSdk.setConfig({ primary_color: value });
-            }
-          },
-          {
-            get: () => config.accent_color || defaultConfig.accent_color,
-            set: (value) => {
-              config.accent_color = value;
-              if (window.elementSdk) window.elementSdk.setConfig({ accent_color: value });
-            }
-          }
-        ],
-        borderables: [],
-        fontEditable: undefined,
-        fontSizeable: undefined
-      };
-    }
-
-    function mapToEditPanelValues(config) {
-      return new Map([
-        ["hero_title", config.hero_title || defaultConfig.hero_title],
-        ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
-        ["feature_1_title", config.feature_1_title || defaultConfig.feature_1_title],
-        ["feature_2_title", config.feature_2_title || defaultConfig.feature_2_title],
-        ["feature_3_title", config.feature_3_title || defaultConfig.feature_3_title],
-        ["cta_title", config.cta_title || defaultConfig.cta_title],
-        ["cta_button_text", config.cta_button_text || defaultConfig.cta_button_text]
-      ]);
-    }
-
-    if (window.elementSdk) {
-      window.elementSdk.init({
-        defaultConfig,
-        onConfigChange,
-        mapToCapabilities,
-        mapToEditPanelValues
-      });
-    }
-  </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9c4ec97f8490a24f',t:'MTc2OTU4NTQ1NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
